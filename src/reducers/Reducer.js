@@ -1,9 +1,9 @@
-import { createStore } from "@reduxjs/toolkit";
+import { createStore } from "redux";
 
 const initialState = {
-  personajes: [{ id: 1, name: "Rick Sanchez", status: "Alive" },],
-  capitulos: [],
-  locaciones: [],
+  characters: [{ id: 1, name: "Rick Sanchez", status: "Alive" },],
+  episodes: [],
+  locations: [],
 };
 
 const reducer = (state = initialState, action) => {
