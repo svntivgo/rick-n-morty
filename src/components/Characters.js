@@ -1,10 +1,10 @@
 import { React, useEffect } from "react";
 
-export const Navbar = () => {
+export const Characters = () => {
 
-  const urlPersonajes = "https://rickandmortyapi.com/api/character";
+  const urlCharacters = "https://rickandmortyapi.com/api/character";
 
-  function fetchPersonajes(url) {
+  function fetchCharacters(url) {
     fetch(url)
       .then((response) => response.json())
       .then((data) => console.log(data))
@@ -12,10 +12,11 @@ export const Navbar = () => {
     }
 
   useEffect(() => {
-    fetchPersonajes(urlPersonajes)
+    fetchCharacters(urlCharacters)
   }, [])
 
   return (
-    <div>Navbar</div>
+    <div>Characters</div>
   )
+
 }
