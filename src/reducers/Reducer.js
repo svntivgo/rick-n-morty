@@ -1,9 +1,8 @@
 import { createStore } from "redux";
 
 const initialState = {
-  characters: [{ id: "x1", name: "Rick Sanchez", status: "Alive" },],
-  episodes: [],
-  locations: [],
+  characters: [{ id: "x1", name: "Rick Sanchez", status: "Alive", },],
+  info: [{ prev: null, next: null, }],
 };
 
 const reducer = (state = initialState, action) => {
