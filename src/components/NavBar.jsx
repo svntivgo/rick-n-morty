@@ -1,18 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux';
+import { fetchCharacters } from '../actions/actions';
 
 const urlCharacterByName = "https://rickandmortyapi.com/api/character/?name=";
-
-function fetchCharacters(url, dispatch) {
-  fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
-      let results = data.results;
-      let info = data.info
-      dispatch({ type: "ADD_CHARACTER", results , info });
-    })
-    .catch((e) => console.log(e));
-}
 
 function NavBar({searchCharacter}) {
   return (
