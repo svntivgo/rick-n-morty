@@ -15,6 +15,7 @@ function fetchCharacters(url, dispatch) {
 }
 
 const Characters = ({ characters, info, addCharacter, changePage }) => (
+
   <section>
 
     {window.addEventListener("load", () => {
@@ -46,6 +47,7 @@ const Characters = ({ characters, info, addCharacter, changePage }) => (
     <button onClick={() => addCharacter()}>Click</button>
 
   </section>
+
 );
 
 const mapStateToProps = state => ({
@@ -54,15 +56,12 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-
   addCharacter() {
     fetchCharacters(urlCharacters, dispatch)
   },
-
   changePage(pageUrl) {
     fetchCharacters(pageUrl, dispatch)
   },
-
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Characters)

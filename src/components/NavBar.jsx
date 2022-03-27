@@ -17,12 +17,26 @@ function fetchCharacters(url, dispatch) {
 function NavBar({searchCharacter}) {
   return (
     <div>
-      <input id="navbar__input" type="text" placeholder="nombre del personaje" onKeyDown={(e) => {
-        if (e.key === "Enter") {searchCharacter()}
-      }}></input>
+      <input
+        id="navbar__input"
+        type="text"
+        placeholder="nombre del personaje"
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            searchCharacter();
+          }
+        }}
+      ></input>
       <button onClick={() => searchCharacter()}>Buscar</button>
+      <nav>
+        <ul>
+          <li>Favoritos</li>
+          <li>Personajes vivos</li>
+          <li>Personajes muertos</li>
+        </ul>
+      </nav>
     </div>
-  )
+  );
 }
 
 const mapStateToProps = (state) => ({
