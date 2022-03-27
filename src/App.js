@@ -2,7 +2,7 @@ import { React, useEffect } from 'react';
 import { Provider } from 'react-redux';
 import './App.css';
 import store from './reducers/Reducer'
-import Characters from "./components/Characters";
+import View from "./components/View";
 import NavBar from './components/NavBar';
 import { fetchCharacters } from './actions/actions';
 
@@ -11,7 +11,7 @@ const urlCharacters = "https://rickandmortyapi.com/api/character";
 const App = () => (
 
     useEffect(() => {
-      fetchCharacters(urlCharacters, store.dispatch)
+      // fetchCharacters(urlCharacters, store.dispatch)
     }, []),
 
     <Provider store={store}>
@@ -20,7 +20,7 @@ const App = () => (
       </nav>
       <main>
         <h2>Rick 'n' Morty</h2>
-        <Characters />
+        <View />
       </main>
     </Provider>
 )

@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { fetchCharacters } from "../actions/actions";
 
-const Characters = ({ characters, info, addCharacter, changePage }) => (
+const View = ({ characters, info, addCharacter, changePage }) => (
 
   <section>
     <div>
@@ -35,4 +35,4 @@ const mapDispatchToProps = dispatch => ({
   },
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Characters)
+export default connect(mapStateToProps, mapDispatchToProps)(View)
