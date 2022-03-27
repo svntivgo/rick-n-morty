@@ -1,32 +1,39 @@
-import { React, useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
 
 const urlCharacters = "https://rickandmortyapi.com/api/character";
 
-function fetchCharacters(url) {
+function fetchCharacters(url, dispatch) {
   fetch(url)
   .then((response) => response.json())
-  .then((data) => data)
-  .then(data => console.log(url))
+  .then((data) => {
+    let results = data.results
+    dispatch({type: "ADD_CHARACTER", results,})
+  })
   .catch((e) => console.log(e));
 }
 
-// useEffect(() => {
-//   fetchCharacters(urlCharacters)
-// }, [])
-
-const Characters = ({characters}) => (
-    <section>
-      {characters.map(character => (
-        <h3 key={character.id}>{character.name}</h3>
-      ))}
-    </section>
-)
+const Characters = ({ characters, addCharacter }) => (
+  <section>
+    {characters.map((character) => (
+      <div key={character.id}>
+        <img src={character.image} alt={character.name} />
+        <h3>{character.name}</h3>
+        <p>{character.status}</p>
+      </div>
+    ))}
+    <button onClick={() => addCharacter()}>Click</button>
+  </section>
+);
 
 const mapStateToProps = state => ({
   characters: state.characters
 })
 
-const mapDispatchToProps = dispatch => ({})
+const mapDispatchToProps = dispatch => ({
+  addCharacter() {
+    fetchCharacters(urlCharacters, dispatch)
+  }
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(Characters)
