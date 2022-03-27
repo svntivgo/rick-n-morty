@@ -5,6 +5,7 @@ import { fetchCharacters } from '../actions/actions';
 const urlCharacterByName = "https://rickandmortyapi.com/api/character/?name=";
 
 function NavBar({searchCharacter}) {
+
   return (
     <div>
       <input
@@ -17,7 +18,9 @@ function NavBar({searchCharacter}) {
           }
         }}
       ></input>
+
       <button onClick={() => searchCharacter()}>Buscar</button>
+
       <nav>
         <ul>
           <li>Favoritos</li>
@@ -34,6 +37,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
+
   searchCharacter() {
     let inputBox = document.getElementById("navbar__input");
     let input = inputBox.value.toLowerCase()
