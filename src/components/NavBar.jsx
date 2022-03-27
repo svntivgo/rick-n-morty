@@ -3,8 +3,10 @@ import { connect } from 'react-redux';
 import { fetchCharacters } from '../actions/actions';
 
 const urlCharacterByName = "https://rickandmortyapi.com/api/character/?name=";
+const urlCharacterAlive = "https://rickandmortyapi.com/api/character/?status=alive"
+const urlCharacterDead = "https://rickandmortyapi.com/api/character/?status=dead"
 
-function NavBar({searchCharacter}) {
+function NavBar({searchCharacter, searchCharacterAlive, searchCharacterDead}) {
 
   return (
     <div>
@@ -23,9 +25,15 @@ function NavBar({searchCharacter}) {
 
       <nav>
         <ul>
-          <li>Favoritos</li>
-          <li>Personajes vivos</li>
-          <li>Personajes muertos</li>
+          <a >
+            <li>Favoritos</li>
+          </a>
+          <a onClick={() => searchCharacterAlive()}>
+            <li>Personajes vivos</li>
+          </a>
+          <a onClick={() => searchCharacterDead()}>
+            <li>Personajes muertos</li>
+          </a>
         </ul>
       </nav>
     </div>
@@ -37,14 +45,21 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-
   searchCharacter() {
     let inputBox = document.getElementById("navbar__input");
-    let input = inputBox.value.toLowerCase()
+    let input = inputBox.value.toLowerCase();
 
-    fetchCharacters(urlCharacterByName+input, dispatch);
+    fetchCharacters(urlCharacterByName + input, dispatch);
 
     inputBox.value = "";
+  },
+
+  searchCharacterAlive() {
+    fetchCharacters(urlCharacterAlive, dispatch);
+  },
+
+  searchCharacterDead() {
+    fetchCharacters(urlCharacterDead, dispatch);
   },
 });
 
