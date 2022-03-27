@@ -11,7 +11,7 @@ const urlCharacters = "https://rickandmortyapi.com/api/character";
 const App = () => (
 
     useEffect(() => {
-      fetchCharacters(urlCharacters, store.dispatch)
+      // fetchCharacters(urlCharacters, store.dispatch)
     }, []),
 
     <Provider store={store}>

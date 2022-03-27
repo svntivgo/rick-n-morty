@@ -21,8 +21,6 @@ const Characters = ({ characters, info, addCharacter, changePage }) => (
         <p>{character.status}</p>
       </div>
     ))}
-
-    <button onClick={() => addCharacter()}>Click</button>
   </section>
 );
 
