@@ -8,7 +8,8 @@ function fetchCharacters(url, dispatch) {
     .then((response) => response.json())
     .then((data) => {
       let results = data.results;
-      dispatch({ type: "ADD_CHARACTER", results });
+      let info = data.info
+      dispatch({ type: "ADD_CHARACTER", results , info });
     })
     .catch((e) => console.log(e));
 }

@@ -8,13 +8,18 @@ function fetchCharacters(url, dispatch) {
   .then((response) => response.json())
   .then((data) => {
     let results = data.results
-    dispatch({type: "ADD_CHARACTER", results,})
+    let info = data.info;
+    dispatch({ type: "ADD_CHARACTER", results , info });
   })
   .catch((e) => console.log(e));
 }
 
-const Characters = ({ characters, addCharacter }) => (
+const Characters = ({ characters, info, addCharacter }) => (
   <section>
+    {window.addEventListener('load', () => {
+      addCharacter();
+    })}
+    {console.log(info)}
     {characters.map((character) => (
       <div key={character.id}>
         <img src={character.image} alt={character.name} />
@@ -27,7 +32,8 @@ const Characters = ({ characters, addCharacter }) => (
 );
 
 const mapStateToProps = state => ({
-  characters: state.characters
+  characters: state.characters,
+  info: state.info
 })
 
 const mapDispatchToProps = dispatch => ({

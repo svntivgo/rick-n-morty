@@ -11,7 +11,8 @@ const reducer = (state = initialState, action) => {
     case "ADD_CHARACTER":
       return {
         // ...state,
-        characters: action.results //state.characters.concat(action.results)
+        characters: action.results, //state.characters.concat(action.results)
+        info: action.info
       }
       break;
 
