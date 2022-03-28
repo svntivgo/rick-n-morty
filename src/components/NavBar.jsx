@@ -9,8 +9,9 @@ const urlCharacterDead = "https://rickandmortyapi.com/api/character/?status=dead
 function NavBar({searchCharacter, searchCharacterAlive, searchCharacterDead, printFavorites}) {
 
   return (
-    <div>
+    <div className="navbar" id="navbar">
       <input
+        className="navbar__input"
         id="navbar__input"
         type="text"
         placeholder="nombre del personaje"
@@ -21,18 +22,30 @@ function NavBar({searchCharacter, searchCharacterAlive, searchCharacterDead, pri
         }}
       ></input>
 
-      <button onClick={() => searchCharacter()}>Buscar</button>
+      <button
+        className="navbar__input-button"
+        id="navbar__input-button"
+        onClick={() => searchCharacter()}
+      >
+        Buscar
+      </button>
 
-      <nav>
-        <ul>
+      <nav className="navbar__menu" id="navbar__menu">
+        <ul className="navbar__menu-list" id="navbar__menu-list">
           <a onClick={() => printFavorites()}>
-            <li>Favoritos</li>
+            <li className="navbar__menu-item" id="navbar__menu-item-fav">
+              Favoritos
+            </li>
           </a>
           <a onClick={() => searchCharacterAlive()}>
-            <li>Personajes vivos</li>
+            <li className="navbar__menu-item" id="navbar__menu-item-alive">
+              Personajes vivos
+            </li>
           </a>
           <a onClick={() => searchCharacterDead()}>
-            <li>Personajes muertos</li>
+            <li className="navbar__menu-item" id="navbar__menu-item-dead">
+              Personajes muertos
+            </li>
           </a>
         </ul>
       </nav>
