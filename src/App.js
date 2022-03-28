@@ -1,6 +1,6 @@
 import { React, useEffect } from 'react';
 import { Provider } from 'react-redux';
-import './App.css';
+import './styles/styles.css';
 import store from './reducers/Reducer'
 import View from "./components/View";
 import NavBar from './components/NavBar';

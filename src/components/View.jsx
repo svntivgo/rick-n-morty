@@ -10,35 +10,72 @@ const View = ({
   addToFavorites,
   removeFromFavorites,
 }) => (
-  <section>
-    <div>
-      {info.prev ? (
-        <button onClick={() => changePage(info.prev)}>⟵</button>
-      ) : null}
+  <section className="view" id="view">
+    {info.prev ? (
+      <button
+        className="view__page-button prev"
+        id="view__page-button-prev"
+        onClick={() => changePage(info.prev)}
+      >
+        ⟵
+      </button>
+    ) : null}
 
-      {info.next ? (
-        <button onClick={() => changePage(info.next)}>⟶</button>
-      ) : null}
-    </div>
+    {info.next ? (
+      <button
+        className="view__page-button next"
+        id="view__page-button-next"
+        onClick={() => changePage(info.next)}
+      >
+        ⟶
+      </button>
+    ) : null}
+
     {characters.map((character) => (
-      <div key={character.id}>
-        <img src={character.image} alt={character.name} />
-        <div>
-          <h3>{character.name}</h3>
+      <div className="view__character-container" key={character.id}>
+        <img
+          className="view__character-image"
+          id={"image-character-image-" + character.id}
+          src={character.image}
+          alt={character.name}
+        />
+        <div
+          className="view__character-info"
+          id={"image-character-info-" + character.id}
+        >
+          <h3
+            className="view__character-name"
+            id={"image-character-name-" + character.id}
+          >
+            {character.name}
+          </h3>
 
           {JSON.parse(localStorage.getItem("favorites")).some(
-            favorite => favorite.id === character.id
-            ) ? (
-              <button onClick={() => removeFromFavorites(character)}>
-                Eliminar de favoritos
-              </button>
-            ) : (
-              <button onClick={() => addToFavorites(character)}>
-                Agregar a favoritos
-              </button>
+            (favorite) => favorite.id === character.id
+          ) ? (
+            <button
+              className="view__character-fav-btn del"
+              id={"image-character-fav-btn-del-" + character.id}
+              onClick={() => removeFromFavorites(character)}
+            >
+              Eliminar de favoritos
+            </button>
+          ) : (
+            <button
+              className="view__character-fav-btn add"
+              id={"image-character-fav-btn-add-" + character.id}
+              onClick={() => addToFavorites(character)}
+            >
+              Agregar a favoritos
+            </button>
           )}
         </div>
-        <p>{character.status}</p>
+        <p
+          className="view__character-status"
+          id={"image-character-status-" + character.id}
+        >
+          {character.status}
+        </p>
       </div>
     ))}
   </section>

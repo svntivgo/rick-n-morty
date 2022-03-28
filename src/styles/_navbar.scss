@@ -1,0 +1,26 @@
+.navbar {
+  display: flex;
+  padding: 2.5rem;
+  background-color: $blueColor;
+  .navbar__input {
+    height: 4.5rem;
+    padding-left: 1rem;
+  }
+  .navbar__input-button {
+    padding: 1rem;
+    border: none;
+    background-color: $greenColor;
+    font-weight: bold;
+    color: oldlace;
+    height: 4.5rem;
+  }
+  .navbar__menu {
+    .navbar__menu-list {
+      .navbar__menu-item {
+        list-style: none;
+        font-size: 2rem;
+        color: $brightColor;
+      }
+    }
+  }
+}

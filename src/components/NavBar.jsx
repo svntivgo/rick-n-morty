@@ -33,17 +33,17 @@ function NavBar({searchCharacter, searchCharacterAlive, searchCharacterDead, pri
       <nav className="navbar__menu" id="navbar__menu">
         <ul className="navbar__menu-list" id="navbar__menu-list">
           <a onClick={() => printFavorites()}>
-            <li className="navbar__menu-item" id="navbar__menu-item-fav">
+            <li className="navbar__menu-item fav" id="navbar__menu-item-fav">
               Favoritos
             </li>
           </a>
           <a onClick={() => searchCharacterAlive()}>
-            <li className="navbar__menu-item" id="navbar__menu-item-alive">
+            <li className="navbar__menu-item alive" id="navbar__menu-item-alive">
               Personajes vivos
             </li>
           </a>
           <a onClick={() => searchCharacterDead()}>
-            <li className="navbar__menu-item" id="navbar__menu-item-dead">
+            <li className="navbar__menu-item dead" id="navbar__menu-item-dead">
               Personajes muertos
             </li>
           </a>
