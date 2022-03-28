@@ -26,12 +26,17 @@ const View = ({
         <div>
           <h3>{character.name}</h3>
 
-          <button onClick={() => addToFavorites(character)}>
-            Agregar a favoritos
-          </button>
-          <button onClick={() => removeFromFavorites(character)}>
-            Eliminar de favoritos
-          </button>
+          {JSON.parse(localStorage.getItem("favorites")).some(
+            favorite => favorite.id === character.id
+            ) ? (
+              <button onClick={() => removeFromFavorites(character)}>
+                Eliminar de favoritos
+              </button>
+            ) : (
+              <button onClick={() => addToFavorites(character)}>
+                Agregar a favoritos
+              </button>
+          )}
         </div>
         <p>{character.status}</p>
       </div>

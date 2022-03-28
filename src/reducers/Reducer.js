@@ -39,8 +39,6 @@ const reducer = (state = initialState, action) => {
       favorites = localStorage.getItem("favorites")
         ? JSON.parse(localStorage.getItem("favorites"))
         : [];
-        // console.log(JSON.parse(localStorage.getItem("favorites")).filter(
-        // (favorite) => favorite.id === 1 ));
       return {
         characters: favorites,
         info: [{ prev: null, next: null }],
