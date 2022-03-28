@@ -6,6 +6,14 @@ const urlCharacterByName = "https://rickandmortyapi.com/api/character/?name=";
 const urlCharacterAlive = "https://rickandmortyapi.com/api/character/?status=alive"
 const urlCharacterDead = "https://rickandmortyapi.com/api/character/?status=dead"
 
+function toogleMenu() {
+  let navigationButton = document.getElementById("navbar__menu-button");
+  let navigationMenu = document.getElementById("navbar__menu-list");
+
+    navigationButton.classList.toggle("navbar__menu-button--expanded");
+    navigationMenu.classList.toggle("navbar__menu-list--expanded");
+}
+
 function NavBar({searchCharacter, searchCharacterAlive, searchCharacterDead, printFavorites}) {
 
   return (
@@ -31,6 +39,13 @@ function NavBar({searchCharacter, searchCharacterAlive, searchCharacterDead, pri
       </button>
 
       <nav className="navbar__menu" id="navbar__menu">
+        <button
+          className="navbar__menu-button"
+          id="navbar__menu-button"
+          onClick={() => toogleMenu()}
+        >
+          Filtros
+        </button>
         <ul className="navbar__menu-list" id="navbar__menu-list">
           <a onClick={() => printFavorites()}>
             <li className="navbar__menu-item fav" id="navbar__menu-item-fav">
@@ -38,7 +53,10 @@ function NavBar({searchCharacter, searchCharacterAlive, searchCharacterDead, pri
             </li>
           </a>
           <a onClick={() => searchCharacterAlive()}>
-            <li className="navbar__menu-item alive" id="navbar__menu-item-alive">
+            <li
+              className="navbar__menu-item alive"
+              id="navbar__menu-item-alive"
+            >
               Personajes vivos
             </li>
           </a>

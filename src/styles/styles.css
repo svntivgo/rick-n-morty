@@ -43,7 +43,10 @@ a:active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: 100vw;
   padding: 2.5rem;
+  position: fixed;
+  top: 0;
   background-color: #141740;
 }
 
@@ -61,10 +64,43 @@ a:active {
   height: 4.5rem;
 }
 
+.navbar .navbar__menu .navbar__menu-button {
+  padding: 1rem;
+  border: none;
+  background-color: #99D6D6;
+  font-weight: bold;
+  color: oldlace;
+  height: 4.5rem;
+  position: fixed;
+  right: 2.5rem;
+  cursor: pointer;
+}
+
+.navbar .navbar__menu .navbar__menu-button.navbar__menu-button--expanded {
+  background-color: #06A4BA;
+}
+
+.navbar .navbar__menu .navbar__menu-list {
+  width: 80vw;
+  height: 100vh;
+  padding: 2rem;
+  background-color: white;
+  border-left: 2px #141740 solid;
+  position: fixed;
+  top: 9.5rem;
+  right: -80vw;
+}
+
+.navbar .navbar__menu .navbar__menu-list.navbar__menu-list--expanded {
+  right: 0vw;
+}
+
 .navbar .navbar__menu .navbar__menu-list .navbar__menu-item {
   list-style: none;
+  margin-bottom: 2rem;
   font-size: 2rem;
-  color: #99D6D6;
+  color: #141740;
+  cursor: pointer;
 }
 
 .view {

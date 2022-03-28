@@ -1,6 +1,9 @@
 .navbar {
   display: flex;
+  width: 100vw;
   padding: 2.5rem;
+  position: fixed;
+  top: 0;
   background-color: $blueColor;
   .navbar__input {
     height: 4.5rem;
@@ -15,11 +18,38 @@
     height: 4.5rem;
   }
   .navbar__menu {
+    .navbar__menu-button {
+      padding: 1rem;
+      border: none;
+      background-color: $brightColor;
+      font-weight: bold;
+      color: oldlace;
+      height: 4.5rem;
+      position: fixed;
+      right: 2.5rem;
+      cursor: pointer;
+      &.navbar__menu-button--expanded{
+        background-color: $springColor;
+      }
+    }
     .navbar__menu-list {
+      width: 80vw;
+      height: 100vh;
+      padding: 2rem;
+      background-color: white;
+      border-left: 2px $blueColor solid;
+      position: fixed;
+      top: 9.5rem;
+      right: -80vw;
+      &.navbar__menu-list--expanded {
+        right: 0vw;
+      }
       .navbar__menu-item {
         list-style: none;
+        margin-bottom: 2rem;
         font-size: 2rem;
-        color: $brightColor;
+        color: $blueColor;
+        cursor: pointer;
       }
     }
   }
