@@ -4,8 +4,8 @@ import { fetchCharacters, showFavorites } from '../actions/actions';
 
 const urlCharacters = "https://rickandmortyapi.com/api/character";
 const urlCharacterByName = "https://rickandmortyapi.com/api/character/?name=";
-const urlCharacterAlive = "https://rickandmortyapi.com/api/character/?status=alive"
-const urlCharacterDead = "https://rickandmortyapi.com/api/character/?status=dead"
+const urlCharacterAlive = "https://rickandmortyapi.com/api/character/?status=alive";
+const urlCharacterDead = "https://rickandmortyapi.com/api/character/?status=dead";
 
 function toogleMenu() {
   let navigationButton = document.getElementById("navbar__menu-button");
