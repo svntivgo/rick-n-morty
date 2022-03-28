@@ -1,9 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchCharacters } from "../actions/actions";
+import { addFavorite, fetchCharacters, removeFavorite } from "../actions/actions";
 
-const View = ({ characters, info, addCharacter, changePage }) => (
-
+const View = ({
+  characters,
+  info,
+  addCharacter,
+  changePage,
+  addToFavorites,
+  removeFromFavorites,
+}) => (
   <section>
     <div>
       {info.prev ? (
@@ -17,7 +23,16 @@ const View = ({ characters, info, addCharacter, changePage }) => (
     {characters.map((character) => (
       <div key={character.id}>
         <img src={character.image} alt={character.name} />
-        <h3>{character.name}</h3>
+        <div>
+          <h3>{character.name}</h3>
+
+          <button onClick={() => addToFavorites(character)}>
+            Agregar a favoritos
+          </button>
+          <button onClick={() => removeFromFavorites(character)}>
+            Eliminar de favoritos
+          </button>
+        </div>
         <p>{character.status}</p>
       </div>
     ))}
@@ -32,6 +47,12 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   changePage(pageUrl) {
     fetchCharacters(pageUrl, dispatch)
+  },
+  addToFavorites(character) {
+    addFavorite(character, dispatch)
+  },
+  removeFromFavorites(character) {
+    removeFavorite(character, dispatch)
   },
 })
 

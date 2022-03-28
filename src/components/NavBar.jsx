@@ -1,12 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { fetchCharacters } from '../actions/actions';
+import { fetchCharacters, showFavorites } from '../actions/actions';
 
 const urlCharacterByName = "https://rickandmortyapi.com/api/character/?name=";
 const urlCharacterAlive = "https://rickandmortyapi.com/api/character/?status=alive"
 const urlCharacterDead = "https://rickandmortyapi.com/api/character/?status=dead"
 
-function NavBar({searchCharacter, searchCharacterAlive, searchCharacterDead}) {
+function NavBar({searchCharacter, searchCharacterAlive, searchCharacterDead, printFavorites}) {
 
   return (
     <div>
@@ -25,7 +25,7 @@ function NavBar({searchCharacter, searchCharacterAlive, searchCharacterDead}) {
 
       <nav>
         <ul>
-          <a >
+          <a onClick={() => printFavorites()}>
             <li>Favoritos</li>
           </a>
           <a onClick={() => searchCharacterAlive()}>
@@ -60,6 +60,10 @@ const mapDispatchToProps = (dispatch) => ({
 
   searchCharacterDead() {
     fetchCharacters(urlCharacterDead, dispatch);
+  },
+
+  printFavorites() {
+    showFavorites(dispatch);
   },
 });
 
