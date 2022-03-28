@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux';
 import { fetchCharacters, showFavorites } from '../actions/actions';
 
+const urlCharacters = "https://rickandmortyapi.com/api/character";
 const urlCharacterByName = "https://rickandmortyapi.com/api/character/?name=";
 const urlCharacterAlive = "https://rickandmortyapi.com/api/character/?status=alive"
 const urlCharacterDead = "https://rickandmortyapi.com/api/character/?status=dead"
@@ -14,7 +15,7 @@ function toogleMenu() {
     navigationMenu.classList.toggle("navbar__menu-list--expanded");
 }
 
-function NavBar({searchCharacter, searchCharacterAlive, searchCharacterDead, printFavorites}) {
+function NavBar({searchCharacter, searchCharacters, searchCharacterAlive, searchCharacterDead, printFavorites}) {
 
   return (
     <div className="navbar" id="navbar">
@@ -52,6 +53,14 @@ function NavBar({searchCharacter, searchCharacterAlive, searchCharacterDead, pri
               Favoritos
             </li>
           </a>
+          <a onClick={(() => {searchCharacters(); toogleMenu()})}>
+            <li
+              className="navbar__menu-item alive"
+              id="navbar__menu-item-alive"
+            >
+              Todos los personajes
+            </li>
+          </a>
           <a onClick={(() => {searchCharacterAlive(); toogleMenu()})}>
             <li
               className="navbar__menu-item alive"
@@ -83,6 +92,10 @@ const mapDispatchToProps = (dispatch) => ({
     fetchCharacters(urlCharacterByName + input, dispatch);
 
     inputBox.value = "";
+  },
+
+  searchCharacters() {
+    fetchCharacters(urlCharacters, dispatch);
   },
 
   searchCharacterAlive() {
