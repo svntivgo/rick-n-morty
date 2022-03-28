@@ -19,7 +19,6 @@ const App = () => (
         <NavBar />
       </nav>
       <main>
-        <h2>Rick 'n' Morty</h2>
         <View />
       </main>
     </Provider>

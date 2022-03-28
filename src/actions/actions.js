@@ -1,14 +1,19 @@
 export function fetchCharacters(url, dispatch) {
+  let results
+  let info
 
   fetch(url)
   .then((response) => response.json())
   .then((data) => {
-    let results = data.results
-    let info = data.info;
-    dispatch({ type: "ADD_CHARACTER", results , info });
+    results = data.results
+    info = data.info;
+  }).catch (error => {
+    console.log(error)
+  }).finally (() =>{
+    typeof results !== "undefined" ? dispatch({ type: "ADD_CHARACTER", results, info }) : alert("El personaje no existe")
   })
-  .catch((e) => console.log(e));
 }
+
 
 export function addFavorite(character, dispatch) {
   dispatch({ type: "ADD_FAVORITES", character });
