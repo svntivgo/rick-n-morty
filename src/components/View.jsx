@@ -55,7 +55,7 @@ const View = ({
             {character.name}
           </h3>
 
-          {JSON.parse(localStorage.getItem("favorites")).some(
+          {JSON.parse(localStorage.getItem("favorites"))?.some(
             (favorite) => favorite.id === character.id
           ) ? (
             <button
