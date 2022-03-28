@@ -47,12 +47,12 @@ function NavBar({searchCharacter, searchCharacterAlive, searchCharacterDead, pri
           Filtros
         </button>
         <ul className="navbar__menu-list" id="navbar__menu-list">
-          <a onClick={() => printFavorites()}>
+          <a onClick={(() => {printFavorites(); toogleMenu()})}>
             <li className="navbar__menu-item fav" id="navbar__menu-item-fav">
               Favoritos
             </li>
           </a>
-          <a onClick={() => searchCharacterAlive()}>
+          <a onClick={(() => {searchCharacterAlive(); toogleMenu()})}>
             <li
               className="navbar__menu-item alive"
               id="navbar__menu-item-alive"
@@ -60,7 +60,7 @@ function NavBar({searchCharacter, searchCharacterAlive, searchCharacterDead, pri
               Personajes vivos
             </li>
           </a>
-          <a onClick={() => searchCharacterDead()}>
+          <a onClick={(() => {searchCharacterDead(); toogleMenu()})}>
             <li className="navbar__menu-item dead" id="navbar__menu-item-dead">
               Personajes muertos
             </li>

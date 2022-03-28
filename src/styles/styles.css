@@ -89,6 +89,8 @@ a:active {
   position: fixed;
   top: 9.5rem;
   right: -80vw;
+  -webkit-transition: ease-in-out 1.2s;
+  transition: ease-in-out 1.2s;
 }
 
 .navbar .navbar__menu .navbar__menu-list.navbar__menu-list--expanded {
@@ -113,6 +115,7 @@ a:active {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  padding-top: 12.5rem;
 }
 
 .view .view__page-button-container {
@@ -130,6 +133,7 @@ a:active {
   font-size: 4rem;
   color: #141740;
   background-color: #F2DD72;
+  cursor: pointer;
 }
 
 .view .view__character-container {
@@ -148,6 +152,10 @@ a:active {
   margin: 10px;
   border: 1.5px #141740 solid;
   border-radius: 1rem;
+}
+
+.view .view__character-container:hover {
+  background-color: #06A4BA;
 }
 
 .view .view__character-container .view__character-image {

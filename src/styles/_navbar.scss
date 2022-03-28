@@ -41,6 +41,7 @@
       position: fixed;
       top: 9.5rem;
       right: -80vw;
+      transition: ease-in-out 1.2s;
       &.navbar__menu-list--expanded {
         right: 0vw;
       }
