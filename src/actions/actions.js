@@ -1,12 +1,13 @@
+import axios from "axios";
+
 export function fetchCharacters(url, dispatch) {
   let results
   let info
 
-  fetch(url)
-  .then((response) => response.json())
-  .then((data) => {
-    results = data.results
-    info = data.info;
+  axios.get(url)
+  .then((response) => {
+    results = response.data.results
+    info = response.data.info;
   }).catch (error => {
     console.log(error)
   }).finally (() =>{
