@@ -66,4 +66,102 @@ a:active {
   font-size: 2rem;
   color: #99D6D6;
 }
+
+.view {
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.view .view__page-button-container {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+}
+
+.view .view__page-button-container .view__page-button {
+  border: none;
+  border-radius: 0.5rem;
+  height: 5rem;
+  width: 7rem;
+  margin-left: 1rem;
+  font-size: 4rem;
+  color: #141740;
+  background-color: #F2DD72;
+}
+
+.view .view__character-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 2rem 0;
+  width: 340px;
+  margin: 10px;
+  border: 1.5px #141740 solid;
+  border-radius: 1rem;
+}
+
+.view .view__character-container .view__character-image {
+  margin: 0 auto;
+}
+
+.view .view__character-container .view__character-info {
+  width: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 1rem;
+}
+
+.view .view__character-container .view__character-info .view__character-name {
+  font-size: 2rem;
+}
+
+.view .view__character-container .view__character-info .view__character-fav-btn {
+  border: none;
+  height: 5rem;
+  width: 8rem;
+  margin-left: 1rem;
+  font-size: 4rem;
+  background-color: #82BF45;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.view .view__character-container .view__character-info .view__character-fav-btn.add {
+  color: oldlace;
+}
+
+.view .view__character-container .view__character-info .view__character-fav-btn.del {
+  color: #06A4BA;
+}
+
+.view .view__character-container .view__character-status {
+  width: 300px;
+  text-align: center;
+  margin-top: 1rem;
+  padding: 1rem;
+  font-size: 2rem;
+  color: #F2DD72;
+  background-color: #141740;
+}
 /*# sourceMappingURL=styles.css.map */

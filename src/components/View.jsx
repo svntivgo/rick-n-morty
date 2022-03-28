@@ -11,25 +11,30 @@ const View = ({
   removeFromFavorites,
 }) => (
   <section className="view" id="view">
-    {info.prev ? (
-      <button
-        className="view__page-button prev"
-        id="view__page-button-prev"
-        onClick={() => changePage(info.prev)}
-      >
-        ⟵
-      </button>
-    ) : null}
+    <div
+      className="view__page-button-container"
+      id="view__page-button-container"
+    >
+      {info.prev ? (
+        <button
+          className="view__page-button prev"
+          id="view__page-button-prev"
+          onClick={() => changePage(info.prev)}
+        >
+          ⟵
+        </button>
+      ) : null}
 
-    {info.next ? (
-      <button
-        className="view__page-button next"
-        id="view__page-button-next"
-        onClick={() => changePage(info.next)}
-      >
-        ⟶
-      </button>
-    ) : null}
+      {info.next ? (
+        <button
+          className="view__page-button next"
+          id="view__page-button-next"
+          onClick={() => changePage(info.next)}
+        >
+          ⟶
+        </button>
+      ) : null}
+    </div>
 
     {characters.map((character) => (
       <div className="view__character-container" key={character.id}>
@@ -58,7 +63,7 @@ const View = ({
               id={"image-character-fav-btn-del-" + character.id}
               onClick={() => removeFromFavorites(character)}
             >
-              Eliminar de favoritos
+              ♥
             </button>
           ) : (
             <button
@@ -66,7 +71,7 @@ const View = ({
               id={"image-character-fav-btn-add-" + character.id}
               onClick={() => addToFavorites(character)}
             >
-              Agregar a favoritos
+              ♥
             </button>
           )}
         </div>
